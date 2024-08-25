@@ -69,6 +69,15 @@
         }
     </style>
     <script>
+        function toggleContent(id) {
+    var content = document.getElementById(id);
+    if (content.style.display === "none" || content.style.display === "") {
+        content.style.display = "block";
+    } else {
+        content.style.display = "none";
+    }
+}
+
         function updateDifficulty() {
             // Ocultar todas las versiones de la Actividad 5
             document.getElementById('activity-51').style.display = 'none';
