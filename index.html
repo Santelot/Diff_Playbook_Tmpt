@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playbook - Misión</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        .header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .banner {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+
+        .banner .title {
+            font-size: 1.2em;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .banner .subtitle {
+            font-size: 1em;
+            margin-top: 5px;
+            border-top: 1px solid white;
+            padding-top: 5px;
+        }
+
+        .content {
+            display: none;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+
+        .dropdown {
+            margin-bottom: 20px;
+        }
+
+        .dropdown select {
+            font-size: 1em;
+            padding: 5px;
+            margin-left: 10px;
+        }
+
+        .time-title {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+    </style>
+    <script>
+        function updateDifficulty() {
+            // Ocultar todas las versiones de la Actividad 5
+            document.getElementById('activity-51').style.display = 'none';
+            document.getElementById('activity-52').style.display = 'none';
+            document.getElementById('activity-53').style.display = 'none';
+
+            var selectedLevel = document.getElementById('level-select').value;
+
+            // Mostrar la versión correspondiente según el nivel seleccionado
+            if (selectedLevel === 'Kinder 1') {
+                document.getElementById('activity-51').style.display = 'block';
+            } else if (selectedLevel === 'Kinder 2') {
+                document.getElementById('activity-52').style.display = 'block';
+            } else if (selectedLevel === 'Kinder 3') {
+                document.getElementById('activity-53').style.display = 'block';
+            }
+        }
+
+        function updateActivities() {
+            var selectedTime = document.getElementById('time-select').value;
+
+            // Mostrar todas las actividades por defecto
+            var activities = document.getElementsByClassName('activity');
+            for (var i = 0; i < activities.length; i++) {
+                activities[i].style.display = 'block';
+            }
+
+            // Ocultar actividades según el tiempo seleccionado
+            if (selectedTime === '45') {
+                document.getElementById('activity-2').style.display = 'none';
+            } else if (selectedTime === '40') {
+                document.getElementById('activity-2').style.display = 'none';
+                document.getElementById('activity-6').style.display = 'none';
+            }
+
+            // Asegurarse de que sólo se muestra la actividad correspondiente al grado seleccionado
+            updateDifficulty();
+        }
+
+        window.onload = function() {
+            // Asignar Kinder 1 como valor inicial y ejecutar updateDifficulty
+            document.getElementById('level-select').value = 'Kinder 1';
+            updateDifficulty(); // Ejecutar para inicializar la visualización correcta
+        };
+    </script>
+
+    <!-- Estructura para las actividades -->
+
+</head>
+
+<body>
+
+    <div class="header">
+        <h1>Playbook - Misión</h1>
+    </div>
+
+    <div class="container">
+        <!-- Dropdown para seleccionar el tiempo -->
+        <div class="dropdown">
+            <label for="time-select">Tiempo efectivo de Clase:</label>
+            <select id="time-select" onchange="updateActivities()">
+                <option value="50">50 minutos</option>
+                <option value="45">45 minutos</option>
+                <option value="40">40 minutos</option>
+            </select>
+        </div>
+
+        <!-- Dropdown para seleccionar el grado -->
+        <div class="dropdown">
+            <label for="level-select">Selecciona el Grado:</label>
+            <select id="level-select" onchange="updateDifficulty()">
+                <option value="Kinder 1">Kinder 1</option>
+                <option value="Kinder 2">Kinder 2</option>
+                <option value="Kinder 3">Kinder 3</option>
+            </select>
+        </div>
+
+
+
+        <h2 id="selected-time" class="time-title">Tiempo efectivo de clase: 50 minutos</h2>
+
+        <!-- Estructura para las actividades -->
+        <!-- Actividad 1 -->
+        <div id="activity-1" class="activity">
+            <div class="banner" onclick="toggleContent('activity1_content')">
+                <div class="title">
+                    <span>📚 Actividad 1: Nombre de la Actividad 1</span>
+                    <span>⏰ Tiempo: X minutos</span>
+                </div>
+                <div class="subtitle">Descripción breve de la Actividad 1</div>
+            </div>
+            <div id="activity1_content" class="content">
+                <!-- Contenido de la Actividad 1 -->
+            </div>
+        </div>
+
+        <!-- Actividad 2 -->
+        <div id="activity-2" class="activity">
+            <div class="banner" onclick="toggleContent('activity2_content')">
+                <div class="title">
+                    <span>🎨 Actividad 2: Nombre de la Actividad 2</span>
+                    <span>⏰ Tiempo: X minutos</span>
+                </div>
+                <div class="subtitle">Descripción breve de la Actividad 2</div>
+            </div>
+            <div id="activity2_content" class="content">
+                <!-- Contenido de la Actividad 2 -->
+            </div>
+        </div>
+
+        <!-- Actividad 3 -->
+        <div id="activity-3" class="activity">
+            <div class="banner" onclick="toggleContent('activity3_content')">
+                <div class="title">
+                    <span>👥 Actividad 3: Nombre de la Actividad 3</span>
+                    <span>⏰ Tiempo: X minutos</span>
+                </div>
+                <div class="subtitle">Descripción breve de la Actividad 3</div>
+            </div>
+            <div id="activity3_content" class="content">
+                <!-- Contenido de la Actividad 3 -->
+            </div>
+        </div>
+
+        <!-- Actividad 4 -->
+        <div id="activity-4" class="activity">
+            <div class="banner" onclick="toggleContent('activity4_content')">
+                <div class="title">
+                    <span>🎯 Actividad 4: Nombre de la Actividad 4</span>
+                    <span>⏰ Tiempo: X minutos</span>
+                </div>
+                <div class="subtitle">Descripción breve de la Actividad 4</div>
+            </div>
+            <div id="activity4_content" class="content">
+                <!-- Contenido de la Actividad 4 -->
+            </div>
+        </div>
+
+        <!-- Actividad 5 - Versión 1 (Kinder 1) -->
+        <div id="activity-51" class="activity" style="display: none;">
+            <div class="banner" onclick="toggleContent('activity51_content')">
+                <div class="title">
+                    <span>🛡️ Actividad 5: Nombre de la Actividad 5</span>
+                    <span>⏰ Tiempo: X minutos</span>
+                </div>
+                <div class="subtitle">Descripción breve de la Actividad 5 para Kinder 1</div>
+            </div>
+            <div id="activity51_content" class="content">
+                <!-- Contenido de la Actividad 5 para Kinder 1 -->
+            </div>
+        </div>
+
+        <!-- Actividad 5 - Versión 2 (Kinder 2) -->
+        <div id="activity-52" class="activity" style="display: none;">
+            <div class="banner" onclick="toggleContent('activity52_content')">
+                <div class="title">
+                    <span>🛡️ Actividad 5: Nombre de la Actividad 5</span>
+                    <span>⏰ Tiempo: X minutos</span>
+                </div>
+                <div class="subtitle">Descripción breve de la Actividad 5 para Kinder 2</div>
+            </div>
+            <div id="activity52_content" class="content">
+                <!-- Contenido de la Actividad 5 para Kinder 2 -->
+            </div>
+        </div>
+
+        <!-- Actividad 5 - Versión 3 (Kinder 3) -->
+        <div id="activity-53" class="activity" style="display: none;">
+            <div class="banner" onclick="toggleContent('activity53_content')">
+                <div class="title">
+                    <span>🛡️ Actividad 5: Nombre de la Actividad 5</span>
+                    <span>⏰ Tiempo: X minutos</span>
+                </div>
+                <div class="subtitle">Descripción breve de la Actividad 5 para Kinder 3</div>
+            </div>
+            <div id="activity53_content" class="content">
+                <!-- Contenido de la Actividad 5 para Kinder 3 -->
+            </div>
+        </div>
+
+        <!-- Actividad 6 -->
+        <div id="activity-6" class="activity">
+            <div class="banner" onclick="toggleContent('activity6_content')">
+                <div class="title">
+                    <span>🚀 Actividad 6: Nombre de la Actividad 6</span>
+                    <span>⏰ Tiempo: X minutos</span>
+                </div>
+                <div class="subtitle">Descripción breve de la Actividad 6</div>
+            </div>
+            <div id="activity6_content" class="content">
+                <!-- Contenido de la Actividad 6 -->
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
