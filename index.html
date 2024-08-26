@@ -129,13 +129,13 @@
             var activity4Time, activity4StepTime;
 
             if (selectedTime === '50') {
-                activity4Time = 25; // Tiempo total para la actividad 4
-                activity4StepTime = 7; // Tiempo para el paso 3 en la actividad 4
+                activity4Time = 13; // Tiempo total para la actividad 4
+                activity4StepTime = 9; // Tiempo para el paso 3 en la actividad 4
             } else if (selectedTime === '40') {
-                activity4Time = 20;
-                activity4StepTime = 5;
+                activity4Time = 10;
+                activity4StepTime = 6;
             } else if (selectedTime === '30') {
-                activity4Time = 15;
+                activity4Time = 7;
                 activity4StepTime = 3;
             }
 
@@ -156,7 +156,7 @@
             // Ocultar actividades según el tiempo seleccionado
             if (selectedTime === '40') {
                 document.getElementById('activity-2').style.display = 'none';
-                document.getElementById('activity-6').style.display = 'none';
+
             } else if (selectedTime === '30') {
                 document.getElementById('activity-2').style.display = 'none';
                 document.getElementById('activity-6').style.display = 'none';
@@ -267,8 +267,8 @@
     <div id="activity-4" class="activity">
         <div class="banner" onclick="toggleContent('activity4_content')">
             <div class="title">
-                <span>🎯 Actividad 4: Nombre de la Actividad 4</span>
-                <span id="activity-4-time">⏰ Tiempo: X minutos</span>
+                <span>🎯 Actividad 4: Actividad de Calentamiento (5 pasos)</span>
+                <span id="activity-4-time">⏰ Tiempo: 13 minutos</span>
             </div>
             <div class="subtitle">Descripción breve de la Actividad 4</div>
         </div>
